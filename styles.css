@@ -1,0 +1,224 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --bg: #050816;
+  --bg-card: rgba(15, 23, 42, 0.9);
+  --accent: #6366f1;
+  --accent-soft: rgba(99, 102, 241, 0.2);
+  --text: #e5e7eb;
+  --muted: #9ca3af;
+  --danger: #f97373;
+  --radius-lg: 18px;
+  --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.7);
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: radial-gradient(circle at top left, #1d4ed8 0, transparent 50%),
+              radial-gradient(circle at bottom right, #4c1d95 0, transparent 50%),
+              var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+.page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 24px 16px 40px;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 1.8rem;
+  letter-spacing: 0.06em;
+}
+
+.tagline {
+  margin-top: 8px;
+  color: var(--muted);
+}
+
+.main {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.2fr);
+  gap: 20px;
+}
+
+@media (max-width: 900px) {
+  .main {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.card {
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.94), rgba(15, 23, 42, 0.8));
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+  padding: 20px 22px;
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  backdrop-filter: blur(18px);
+}
+
+.card h2 {
+  margin: 0 0 8px;
+}
+
+.hint {
+  margin: 0 0 16px;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* Upload form */
+
+.file-drop {
+  display: block;
+  border-radius: 16px;
+  border: 1.5px dashed rgba(148, 163, 184, 0.7);
+  background: radial-gradient(circle at top, rgba(79, 70, 229, 0.18), transparent 55%);
+  cursor: pointer;
+  padding: 18px;
+  margin-bottom: 16px;
+  transition: border-color 0.2s ease, transform 0.12s ease, box-shadow 0.2s ease;
+}
+
+.file-drop:hover {
+  border-color: var(--accent);
+  transform: translateY(-1px);
+  box-shadow: 0 14px 35px rgba(15, 23, 42, 0.7);
+}
+
+.file-drop input[type="file"] {
+  display: none;
+}
+
+.file-drop-inner {
+  text-align: center;
+}
+
+.file-drop .icon {
+  font-size: 2.4rem;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.file-drop .title {
+  font-weight: 600;
+  display: block;
+}
+
+.file-drop .subtitle {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.file-drop .filename {
+  display: block;
+  margin-top: 8px;
+  font-size: 0.85rem;
+  color: var(--accent);
+  word-break: break-all;
+}
+
+.btn-primary {
+  width: 100%;
+  border: none;
+  border-radius: 999px;
+  padding: 10px 16px;
+  font-weight: 600;
+  font-size: 0.98rem;
+  color: white;
+  background: linear-gradient(135deg, #4f46e5, #06b6d4);
+  cursor: pointer;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.9);
+  transition: transform 0.1s ease, box-shadow 0.1s ease, filter 0.1s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.05);
+}
+
+.btn-primary:active {
+  transform: translateY(1px);
+  box-shadow: 0 3px 12px rgba(15, 23, 42, 0.9);
+}
+
+.status {
+  min-height: 20px;
+  margin-top: 8px;
+  font-size: 0.88rem;
+  color: var(--muted);
+}
+
+/* Result card */
+
+.result-card {
+  position: relative;
+}
+
+.result-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+@media (max-width: 900px) {
+  .result-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.result-block {
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: rgba(15, 23, 42, 0.9);
+  border: 1px solid rgba(148, 163, 184, 0.3);
+}
+
+.result-block h3 {
+  margin: 0 0 6px;
+  font-size: 0.95rem;
+  color: #e5e7eb;
+}
+
+.result-block p {
+  margin: 0;
+  color: var(--text);
+  font-size: 0.9rem;
+}
+
+.result-block ul {
+  margin: 0;
+  padding-left: 18px;
+  color: var(--text);
+  font-size: 0.9rem;
+}
+
+.result-block.full-width {
+  margin-top: 4px;
+}
+
+.footer {
+  margin-top: 20px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+
+/* Utility */
+
+.error {
+  color: var(--danger);
+}

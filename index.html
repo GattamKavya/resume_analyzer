@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>AI Resume Analyzer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="page">
+    <header class="header">
+      <div class="logo">AI Resume Analyzer</div>
+      <p class="tagline">Upload your resume and get instant, AI‑powered feedback.</p>
+    </header>
+
+    <main class="main">
+      <section class="card upload-card">
+        <h2>Upload your resume (PDF)</h2>
+        <p class="hint">We’ll analyze your skills, domain, strengths and improvements.</p>
+
+        <form id="uploadForm">
+          <label class="file-drop" id="fileDrop">
+            <input type="file" id="resumeInput" accept="application/pdf" required />
+            <div class="file-drop-inner">
+              <span class="icon">📄</span>
+              <span class="title">Drag & drop your resume here</span>
+              <span class="subtitle">or click to browse files</span>
+              <span class="filename" id="fileName">No file chosen</span>
+            </div>
+          </label>
+
+          <button type="submit" class="btn-primary" id="analyzeBtn">
+            Analyze Resume
+          </button>
+        </form>
+
+        <p class="status" id="status"></p>
+      </section>
+
+      <section class="card result-card" id="resultCard" hidden>
+        <h2>Analysis Summary</h2>
+
+        <div class="result-grid">
+          <div class="result-block">
+            <h3>Domain</h3>
+            <p id="domain"></p>
+          </div>
+
+          <div class="result-block">
+            <h3>Skills</h3>
+            <ul id="skills"></ul>
+          </div>
+
+          <div class="result-block">
+            <h3>Strengths</h3>
+            <ul id="strengths"></ul>
+          </div>
+
+          <div class="result-block">
+            <h3>Weaknesses / Gaps</h3>
+            <ul id="weaknesses"></ul>
+          </div>
+        </div>
+
+        <div class="result-block full-width">
+          <h3>Suggested Improvements</h3>
+          <ul id="improvements"></ul>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <small>Powered by Wrap AI · Demo project</small>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
